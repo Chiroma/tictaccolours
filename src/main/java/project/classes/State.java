@@ -98,15 +98,30 @@ public class State {
 	 * @param col the column moved by the player.
 	 */
 	private void nextTurn(int row, int col) {
-		/*final String symbol1 = GREEN;
-		final String symbol2 = YELLOW;
-		final String symbol3 = RED; */
-		if (((board[row][0] == (GREEN || RED || YELLOW)) && (board[row][1] == (GREEN || RED || YELLOW)) && (board[row][2] == (GREEN || RED || YELLOW)))
-			|| ((board[0][col] == (GREEN || RED || YELLOW)) && (board[1][col] == (GREEN || RED || YELLOW)) && (board[2][col] == (GREEN || RED || YELLOW)))
-			|| ((row == col) && (board[0][0] == (GREEN || RED || YELLOW)) && (board[1][1] == (GREEN || RED || YELLOW)) && (board[2][2] == (GREEN || RED || YELLOW)))
-				|| ((col == 2 - row) && (board[0][2] == (GREEN || RED || YELLOW)) && (board[1][1] == (GREEN || RED || YELLOW)) && (board[2][0] == (GREEN || RED || YELLOW)))) {
+		final String s1 = GREEN;
+		final String s2 = YELLOW;
+		final String s3 = RED; 
+		if ((board[row][0] == s1 && board[row][1] == s1 && board[row][2] == s1)
+			|| (board[0][col] == s1 && board[1][col] == s1 && board[2][col] == s1)
+			|| (row == col && board[0][0] == s1 && board[1][1] == s1 && board[2][2] == s1)
+				|| (col == 2 - row && board[0][2] == s1 && board[1][1] == s1 && board[2][0] == s1)) {
 			gameOver = true;
 			winner = currentPlayer;
+			
+		}else if((board[row][0] == s2 && board[row][1] == s2 && board[row][2] == s2)
+			|| (board[0][col] == s2 && board[1][col] == s2 && board[2][col] == s2)
+			|| (row == col && board[0][0] == s2 && board[1][1] == s2 && board[2][2] == s2)
+				|| (col == 2 - row && board[0][2] == s2 && board[1][1] == s2 && board[2][0] == s2)) {
+			gameOver = true;
+			winner = currentPlayer;
+			
+		}else if((board[row][0] == s3 && board[row][1] == s3 && board[row][2] == s3)
+			|| (board[0][col] == s3 && board[1][col] == s3 && board[2][col] == s3)
+			|| (row == col && board[0][0] == s3 && board[1][1] == s3 && board[2][2] == s3)
+				|| (col == 2 - row && board[0][2] == s3 && board[1][1] == s3 && board[2][0] == s3)) {
+			gameOver = true;
+			winner = currentPlayer;
+			
 		} else if (nOfMarks == 27) {
 			gameOver = true;
 		}
