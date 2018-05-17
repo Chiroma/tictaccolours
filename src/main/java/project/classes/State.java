@@ -98,14 +98,16 @@ public class State {
 	 * @param col the column moved by the player.
 	 */
 	private void nextTurn(int row, int col) {
-		final String symbol = GREEN;
-		if ((board[row][0] == symbol && board[row][1] == symbol && board[row][2] == symbol)
-			|| (board[0][col] == symbol && board[1][col] == symbol && board[2][col] == symbol)
-			|| (row == col && board[0][0] == symbol && board[1][1] == symbol && board[2][2] == symbol)
-				|| (col == 2 - row && board[0][2] == symbol && board[1][1] == symbol && board[2][0] == symbol)) {
+		/*final String symbol1 = GREEN;
+		final String symbol2 = YELLOW;
+		final String symbol3 = RED; */
+		if (((board[row][0] == (GREEN || RED || YELLOW)) && (board[row][1] == (GREEN || RED || YELLOW)) && (board[row][2] == (GREEN || RED || YELLOW)))
+			|| ((board[0][col] == (GREEN || RED || YELLOW)) && (board[1][col] == (GREEN || RED || YELLOW)) && (board[2][col] == (GREEN || RED || YELLOW)))
+			|| ((row == col) && (board[0][0] == (GREEN || RED || YELLOW)) && (board[1][1] == (GREEN || RED || YELLOW)) && (board[2][2] == (GREEN || RED || YELLOW)))
+				|| ((col == 2 - row) && (board[0][2] == (GREEN || RED || YELLOW)) && (board[1][1] == (GREEN || RED || YELLOW)) && (board[2][0] == (GREEN || RED || YELLOW)))) {
 			gameOver = true;
 			winner = currentPlayer;
-		} else if (nOfMarks == 9) {
+		} else if (nOfMarks == 27) {
 			gameOver = true;
 		}
 		currentPlayer = currentPlayer.opponent();
